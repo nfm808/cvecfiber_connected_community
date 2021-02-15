@@ -1,2 +1,7 @@
+# exclude node modules and .env
 .env
 node_modules
+
+# exclude any files in these folders
+rawCSV/*
+processedCSV/*

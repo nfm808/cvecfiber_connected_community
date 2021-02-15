@@ -8,12 +8,12 @@ const limiter = new BottleNeck({
 	minTime: 20,
 });
 
-const filePath = "./connected_community.csv";
+const filePath = "./rawCSV/connected_community.csv";
 const filePathT = "./test2.csv";
 
 const apiKey = process.env.GOOGLE_API_KEY;
 
-const outputFilename = "processed_connected_community.csv";
+const outputFilename = "./processedCSV/processed_connected_community.csv";
 
 async function parseFile(filePath) {
 	try {
@@ -45,7 +45,7 @@ async function parseFile(filePath) {
 
 		// convert the json back to csv format
 		let back2csv = coded.map((x) => x && Object.values(x).join(",")).join("\n");
-		console.log(back2csv);
+
 		// write headers in new csv file
 		WriteDocument.headers(outputFilename, headers);
 
